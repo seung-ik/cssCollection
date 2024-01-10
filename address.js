@@ -10,8 +10,7 @@ const web3 = new Web3(
 );
 console.log(web3);
 
-const privateKeyHex =
-  "0x0babb7c4040d965d821818816e81dc8d6f75c60d5e16e9299f16822ef8f1a4ff";
+const privateKeyHex = process.env.PBK;
 
 // 개인 키로부터 Ethereum 주소 생성
 const account = web3.eth.accounts.privateKeyToAccount(privateKeyHex);
