@@ -1,0 +1,39 @@
+.text-hover {
+  cursor: pointer;
+  /* -webkit-text-stroke: 3px rgb(0, 0, 0); */
+  background-image: linear-gradient(45deg, #45a961, #bd7046);
+  -webkit-background-clip: text;
+  /* color: transparent; */
+  background-repeat: no-repeat;
+  transition: background-size 0.7s ease-in, -webkit-text-stroke 0.2s ease,
+    color 1.2s ease;
+}
+
+.text-hover:hover {
+  background-size: 100% 100%;
+  -webkit-text-stroke: initial;
+  color: transparent;
+  filter: drop-shadow(0 0 5px #f9f7f1);
+  /* -webkit-text-stroke: 3px rgb(0, 0, 0); */
+}
+
+.left {
+  background-position: 0% 0%;
+  background-size: 0% 100%;
+}
+.right {
+  background-position: 100% 0%;
+  background-size: 0% 100%;
+}
+.top {
+  background-position: 0% 0%;
+  background-size: 100% 0%;
+}
+.bottom {
+  background-position: 0% 100%;
+  background-size: 100% 0%;
+}
+.center {
+  background-position: 50% 50%;
+  background-size: 0% 0%;
+}
