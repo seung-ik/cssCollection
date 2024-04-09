@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="frame"></div>
+    <script>
+      const frame = document.querySelector(".frame");
+      let imgCount = 0;
+      const imgs = ["./img1.jpg", "./img2.jpg", "./img3.jpg", "./img4.jpg"];
+
+      let startX = 0,
+        startY = 0,
+        moveX = 0,
+        moveY = 0;
+
+      for (let i = 0; i < 5; i++) {
+        appendCard();
+      }
+      function appendCard() {
+        const firstCard = frame.children[0];
+        const newCard = document.createElement("div");
+        newCard.className = "card";
+        console.log(imgs[imgCount++ % imgs.length]);
+        newCard.style.backgroundImage = `url(${
+          imgs[imgCount++ % imgs.length]
+        })`;
+
+        if (firstCard) frame.insertBefore(newCard, firstCard);
+        else frame.appendChild(newCard);
+      }
+
+      let current = frame.querySelector(".card:last-child");
+      addEvent(current);
+
+      function addEvent(card) {
+        card.addEventListener("pointerdown", onPointerDown);
+      }
+
+      function onPointerDown(e) {
+        startX = e.clientX;
+        startY = e.clientY;
+
+        current.addEventListener("pointermove", onPointerMove);
+        current.addEventListener("pointerup", onPointerUp);
+        current.addEventListener("pointerleave", onPointerLeave);
+      }
+      function onPointerMove(e) {
+        moveX = e.clientX - startX;
+        moveY = e.clientY - startY;
+        console.log(moveX, moveY);
+        setTransform(moveX, moveY, 0);
+      }
+
+      function setTransform(x, y, deg) {
+        current.style.transform = `translate3d(${x}px, ${y}px, 0) rotate(${deg}deg)`;
+      }
+
+      function setTransform() {}
+      function onPointerUp(e) {}
+      function onPointerLeave(e) {}
+    </script>
+  </body>
+</html>
