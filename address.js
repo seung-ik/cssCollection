@@ -8,7 +8,7 @@ dotenv.config();
 const web3 = new Web3(
   `https://eth-mainnet.g.alchemy.com/v2/${process.env.ALCHEMY_API_KEY}`
 );
-console.log(web3);
+console.log(process.env.ALCHEMY_API_KEY);
 
 const privateKeyHex = process.env.PBK;
 
